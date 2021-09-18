@@ -7,6 +7,19 @@ class Clock extends React.Component {
     super(props)
     this.state = { date: new Date() }
   }
+  componentDidMount() {
+    this.timerId = setInterval(() => {
+      this.tick()
+    }, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timerId)
+  }
+  tick() {
+    this.setState({
+      date: new Date()
+    })
+  }
   render() {
     return (
       <div>
@@ -16,5 +29,24 @@ class Clock extends React.Component {
     )
   }
 }
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { isToggleON: true }
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick() {
+    this.setState(state => ({
+      isToggleON: !state.isToggleON
+    }))
+  }
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleON ? 'on' : 'off'}
+      </button>
+    )
+  }
+}
 
-export default Clock;
+export { Clock, Toggle };
