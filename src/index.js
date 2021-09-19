@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Clock, Toggle } from './App';
+import { Greeting, Clock, Toggle } from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Clock />
     <Toggle />
+    <Greeting isLoggedIn={true} />
   </React.StrictMode>,
   document.getElementById('root')
 );

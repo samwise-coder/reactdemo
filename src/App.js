@@ -48,5 +48,18 @@ class Toggle extends React.Component {
     )
   }
 }
-
-export { Clock, Toggle };
+//注意*首字母必须大写
+function UserGreeting(props) {
+  return <h1>welcome back</h1>
+}
+function GuestGreeting(props) {
+  return <h1>please sign up</h1>
+}
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn
+  if (isLoggedIn) {
+    return <UserGreeting />
+  }
+  return <GuestGreeting />
+}
+export { Greeting, Clock, Toggle };
