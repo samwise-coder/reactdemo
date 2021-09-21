@@ -69,7 +69,7 @@ function LoginButton(props) {
     </button>
   );
 }
-
+//add log 
 function LogoutButton(props) {
   return (
     <button onClick={props.onClick}>
